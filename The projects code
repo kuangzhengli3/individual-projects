@@ -1,0 +1,27 @@
+# to find a specific version
+rmarkdown::find_pandoc(version = "2.9.1")
+
+# to find Pandoc under a specific directory
+rmarkdown::find_pandoc(dir = "~/Downloads/Pandoc")
+
+# ignore the previously found Pandoc and search again
+rmarkdown::find_pandoc(cache = FALSE)
+tinytex::install_tinytex()
+# to uninstall TinyTeX, run
+# tinytex::uninstall_tinytex()
+# if the log file is filename.log
+tinytex::parse_install("filename.log")
+
+# or use the `text` argument
+tinytex::parse_install(
+  text = "! LaTeX Error: File `ocgbase.sty' not found."
+)
+# it will install the "ocgx2" package
+# if the log file is filename.log
+tinytex::parse_packages("filename.log")
+
+# or use the `text` argument
+tinytex::parse_packages(
+  text = "! LaTeX Error: File `ocgbase.sty' not found."
+)
+# it should return "ocgx2"
